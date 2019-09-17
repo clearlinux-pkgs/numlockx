@@ -1,0 +1,5 @@
+1.2
+libXtst-dev
+pkgconfig(ice)
+pkgconfig(x11)
+pkgconfig(xext)
