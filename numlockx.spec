@@ -4,7 +4,7 @@
 #
 Name     : numlockx
 Version  : 1.2
-Release  : 1
+Release  : 2
 URL      : http://deb.debian.org/debian/pool/main/n/numlockx/numlockx_1.2.orig.tar.gz
 Source0  : http://deb.debian.org/debian/pool/main/n/numlockx/numlockx_1.2.orig.tar.gz
 Summary  : Turns on the numlock key in X11.
