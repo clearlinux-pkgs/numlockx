@@ -4,10 +4,10 @@
 #
 Name     : numlockx
 Version  : 1.2
-Release  : 2
-URL      : http://deb.debian.org/debian/pool/main/n/numlockx/numlockx_1.2.orig.tar.gz
-Source0  : http://deb.debian.org/debian/pool/main/n/numlockx/numlockx_1.2.orig.tar.gz
-Summary  : Turns on the numlock key in X11.
+Release  : 3
+URL      : https://mirrors.kernel.org/debian/pool/main/n/numlockx/numlockx_1.2.orig.tar.gz
+Source0  : https://mirrors.kernel.org/debian/pool/main/n/numlockx/numlockx_1.2.orig.tar.gz
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT
 Requires: numlockx-bin = %{version}-%{release}
@@ -58,21 +58,21 @@ license components for the numlockx package.
 
 %prep
 %setup -q -n numlockx-1.2
+cd %{_builddir}/numlockx-1.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1568744561
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1604442015
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static
 make  %{?_smp_mflags}
@@ -82,13 +82,13 @@ export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-make VERBOSE=1 V=1 %{?_smp_mflags} check
+make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1568744561
+export SOURCE_DATE_EPOCH=1604442015
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/numlockx
-cp LICENSE %{buildroot}/usr/share/package-licenses/numlockx/LICENSE
+cp %{_builddir}/numlockx-1.2/LICENSE %{buildroot}/usr/share/package-licenses/numlockx/53bea3618b0f09b2486031a14a0e0763fdaebe2f
 %make_install
 
 %files
@@ -100,4 +100,4 @@ cp LICENSE %{buildroot}/usr/share/package-licenses/numlockx/LICENSE
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/numlockx/LICENSE
+/usr/share/package-licenses/numlockx/53bea3618b0f09b2486031a14a0e0763fdaebe2f
